@@ -1,5 +1,6 @@
 import { openDB } from 'idb';
 
+//function that will initilize the db when called
 const initdb = async () =>
   openDB('jate', 1, {
     upgrade(db) {
@@ -20,16 +21,23 @@ export const putDb = async (content) => {
   const store = tx.objectStore("jate");
   const request = store.put({id: 1, value: content});
   const result = await request;
-  console.log("saved! " + result);
+  //success msg
+  console.log("saved! ", result);
 };
 
 // TODO: Add logic for a method that gets all the content from the database
-export const getDb = async () => console.error('getDb not implemented');
+export const getDb = async () => {
+  console.error('getDb not implemented');
+  const jateDB = await openDB("jate", 1);
+  const tx = jateDB.transaction("jate", "readonly");
+  const store = tx.objectStore("jate");
+  const request = store.getAll();
+  const result = await request;
+  //success msg
+  console.log("results: ", result);
 
-
-
-
-
+  return result;
+};
 
 //initialize db
 initdb();
