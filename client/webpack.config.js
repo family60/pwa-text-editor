@@ -53,10 +53,10 @@ module.exports = () => {
       {
         test: /\.m?js$/,
         //dont target node module js files by mistake
-        excludes: /node_modules/,
+        exclude: /node_modules/,
         use: {
           loader: "babel-loader",
-          option: {
+          options: {
             presets: ["@babel/preset-env"],
             plugins: ["@babel/plugin-proposal-object-rest-spread", "@babel/transform-runtime"]
           }
