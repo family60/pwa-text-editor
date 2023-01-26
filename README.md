@@ -1,5 +1,6 @@
 # pwa-text-editor
 Progressive web application that is meant to be used as a web text editor that also features data persistency.
+Users may also use this app offline by downloading it onto their computer.
 
 ## Installation
 1. Clone repo
